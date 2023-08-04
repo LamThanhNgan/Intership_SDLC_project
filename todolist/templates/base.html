@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>YourTasks</title>
+  <title>TaskMaster</title>
   <meta name="description" content="Small todolist app.">
   <meta name="author" content="Christian Rotzoll">
   <!-- Mobile Specific Metas
@@ -41,7 +41,7 @@
     <nav class="navbar">
       <div class="container">
         <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href="{% url 'lists:index' %}">Djodolist</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="{% url 'lists:index' %}">TaskMaster</a></li>
           {% if not user.is_authenticated %}
           <li class="navbar-item">
             <a class="navbar-link" href="{% url 'auth:login' %}">Login</a> {% else %}
