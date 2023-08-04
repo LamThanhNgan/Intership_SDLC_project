@@ -39,3 +39,5 @@ class TodoSerializer(serializers.ModelSerializer):
             "is_finished",
             "finished_at",
         )
+
+
