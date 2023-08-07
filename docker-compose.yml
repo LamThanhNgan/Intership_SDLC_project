@@ -1,14 +1,14 @@
 version: "3"
 services:
   web-app:
-    image: taskmaster:v1
-    container_name: task-master-app
+    image: ${IMAGE_BUILD}
+    container_name: ${PROJECT_NAME}
     build:
       context: .
       args:
-        DJANGO_SUPERUSER_EMAIL: "nganadmin@gmail.com"
-        DJANGO_SUPERUSER_USERNAME: "nganadmin"
-        DJANGO_SUPERUSER_PASSWORD: "Planck662607004!" #TODO: find way to store credentials
+        DJANGO_SUPERUSER_EMAIL: ${DJANGO_SUPERUSER_EMAIL}
+        DJANGO_SUPERUSER_USERNAME: ${DJANGO_SUPERUSER_USERNAME}
+        DJANGO_SUPERUSER_PASSWORD: ${DJANGO_SUPERUSER_PASSWORD}
     ports:
       - "80:8000"
     restart: always
