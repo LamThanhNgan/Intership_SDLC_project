@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  jenkins:
+    image: thanhngan/jenkins
+    build:
+      context: .
+      dockerfile: jenkins.Dockerfile
+      tags:
+        - "thanhngan/jenkins:2.401.3-lts-jdk11"
+    container_name: jenkins-dev
+    environment:
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_CERT_PATH=/certs/client
+      - DOCKER_TLS_VERIFY=1
+      - DOCKER_TLS_CERTDIR=/certs
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+      - "2376:2376"
+    volumes:
+      - "jenkins-data:/var/jenkins_home"
+      - "jenkins-docker-certs:/certs/client:ro"
+    restart: on-failure
+    networks:
+      - jenkins
+
+networks:
+  jenkins:
+    external: true
+
+volumes:
+  jenkins-data:
+  jenkins-docker-certs:
+
+  
