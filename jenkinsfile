@@ -2,13 +2,17 @@ pipeline {
     agent any
     environment {
         DJANGO_SUPERUSER_EMAIL="nganadmin@gmail.com"
-        DJANGO_SUPERUSER_USERNAME="nganadmin"
-        DJANGO_SUPERUSER_PASSWORD="Planck662607004!"
     }
     stages {
         stage('Build'){
             steps {
-                sh "docker-compose up -d --build"
+                withCredentials([usernamePassword(credentialsId: 'DJANGO_SUPERUSER', passwordVariable: 'DJANGO_SUPERUSER_PASSWORD', usernameVariable: 'DJANGO_SUPERUSER_USERNAME')]) {
+                    sh """
+                    docker-compose up -d --build \
+                        --env DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}    \
+                        --env DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME}
+                    """
+                }
             }
         }
     }
