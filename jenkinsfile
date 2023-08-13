@@ -15,7 +15,7 @@ pipeline {
 
                 echo "Uploading image..."
                 withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB_ACCOUNT', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                    sh "'echo ${PASSWORD}' | docker login --username ${USERNAME} --pasword-stdin"
+                    sh "'echo ${PASSWORD}' | docker login --username ${USERNAME} --password-stdin"
                     sh '''
                         docker tag ${IMAGE_NAME}:${BUILD_NUMBER} ${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${BUILD_NUMBER}
                         docker tag ${IMAGE_NAME}:${BUILD_NUMBER} ${REGISTRY_NAMESPACE}/${IMAGE_NAME}:latest
