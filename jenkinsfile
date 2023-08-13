@@ -7,11 +7,7 @@ pipeline {
         stage('Build'){
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DJANGO_SUPERUSER', passwordVariable: 'DJANGO_SUPERUSER_PASSWORD', usernameVariable: 'DJANGO_SUPERUSER_USERNAME')]) {
-                    sh """
-                    docker-compose up -d --build --no-start\
-                        --env DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}    \
-                        --env DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME}
-                    """
+                    sh "docker-compose up -d --build --no-start"
                 }
             }
         }
