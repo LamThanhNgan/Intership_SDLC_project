@@ -1,9 +1,14 @@
 pipeline {
     agent any
+    environment {
+        DJANGO_SUPERUSER_EMAIL="nganadmin@gmail.com"
+        DJANGO_SUPERUSER_USERNAME="nganadmin"
+        DJANGO_SUPERUSER_PASSWORD="Planck662607004!"
+    }
     stages {
-         stage('Build'){
+        stage('Build'){
             steps {
-                sh "docker-compose up --build"
+                sh "docker-compose up -d --build"
             }
         }
     }
