@@ -1,8 +1,7 @@
 version: "3"
 services:
   web-app:
-    image: ${IMAGE_BUILD}
-    container_name: ${PROJECT_NAME}
+    image: task-master:${BUILD_NUMBER}
     build:
       context: .
       args:
