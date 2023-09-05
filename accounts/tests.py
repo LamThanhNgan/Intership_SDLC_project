@@ -9,7 +9,7 @@ from accounts.forms import LoginForm, RegistrationForm
 class AccountsTests(TestCase):
     def setUp(self):
         self.register_data = {
-            "email": "new@user.com",
+            "email": "ngan@user.com",
             "username": "new_user",
             "password": "test",
             "password_confirmation": "test",
