@@ -10,7 +10,7 @@ class AccountsTests(TestCase):
     def setUp(self):
         self.register_data = {
             "email": "ngan@user.com",
-            "username": "new_user",
+            "username": "ngan",
             "password": "test",
             "password_confirmation": "test",
         }
