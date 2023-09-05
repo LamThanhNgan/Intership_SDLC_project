@@ -11,7 +11,7 @@ def form_kwargs(widget, label="", max_length=64):
 
 
 class LoginForm(forms.Form):
-
+    # login form
     username = forms.CharField(
         **form_kwargs(widget=forms.TextInput(attrs=widget_attrs("Username")))
     )
