@@ -15,6 +15,7 @@ class LoginForm(forms.Form):
     username = forms.CharField(
         **form_kwargs(widget=forms.TextInput(attrs=widget_attrs("Username")))
     )
+    
     password = forms.CharField(
         **form_kwargs(widget=forms.PasswordInput(attrs=widget_attrs("Password")))
     )
