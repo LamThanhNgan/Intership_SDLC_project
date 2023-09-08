@@ -1,5 +1,5 @@
-FROM jenkins/jenkins:2.401.3-lts-jdk11
-
+FROM jenkins/jenkins:latest
+# FROM jenkins/jenkins:2.401.3-lts-jdk11
 
 USER root
 
