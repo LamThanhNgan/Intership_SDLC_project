@@ -28,7 +28,9 @@ pipeline {
         }
 
         stage('JIRA') {
-            def testIssue = [fields: [ // id or key must present for project.
+            steps{
+                script {
+                    def testIssue = [fields: [ // id or key must present for project.
                                     project: [id: '10006'],
                                     summary: 'New JIRA Created from Jenkins.',
                                     description: 'New JIRA Created from Jenkins.',
@@ -40,6 +42,8 @@ pipeline {
 
             echo response.successful.toString()
             echo response.data.toString()
+                }
+            }
         }
     }
 }
