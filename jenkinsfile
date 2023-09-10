@@ -33,7 +33,7 @@ pipeline {
                     def comment = [ body: 'Test comment from Jenkins' ]
                     jiraAddComment idOrKey: 'SW-9', input: comment
             }
-            
+            }
         }
     }
 }
