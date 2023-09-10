@@ -31,8 +31,8 @@ pipeline {
             steps{
                 script {
                     withEnv(['JIRA_SITE=JIRA-Test']) {
-                    def comment = [ body: 'Test comment from Jenkins' ]
-                    jiraAddComment idOrKey: 'SW-11', input: comment
+                    echo "testing"
+                    jiraComment body: 'Test comment from Jenkins', issueKey: 'SW-55'
                     }
                 }
             }
