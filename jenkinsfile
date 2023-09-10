@@ -32,7 +32,7 @@ pipeline {
                 script {
                     withEnv(['JIRA_SITE=JIRA-Test']) {
                     def comment = [ body: 'Test comment from Jenkins' ]
-                    jiraAddComment idOrKey: 'TASK-1', input: comment
+                    jiraAddComment idOrKey: 'SW-11', input: comment
                     }
                 }
             }
