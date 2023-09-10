@@ -32,7 +32,7 @@ pipeline {
                 script {
                     withEnv(['JIRA_SITE=JIRA-Test']) {
                     echo "testing"
-                    jiraComment body: 'Test comment from Jenkins', issueKey: 'SW-55'
+                    jiraComment body: 'Test comment from Jenkins', issueKey: 'SW-9'
                     }
                 }
             }
