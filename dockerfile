@@ -24,3 +24,5 @@ RUN python manage.py createsuperuser            \
         --username $DJANGO_SUPERUSER_USERNAME 
 
 CMD python manage.py runserver 0.0.0.0:8000
+
+
