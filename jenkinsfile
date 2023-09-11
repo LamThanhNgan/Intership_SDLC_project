@@ -7,13 +7,16 @@ pipeline {
         JIRA_ISSUE_KEY = "SW-9"
     }
     stages {
-        stage('Build'){
-            steps {
+        stage('Build image') {
+            steps{
                 echo "Building image..."
                 withCredentials([usernamePassword(credentialsId: 'DJANGO_SUPERUSER', passwordVariable: 'DJANGO_SUPERUSER_PASSWORD', usernameVariable: 'DJANGO_SUPERUSER_USERNAME')]) {
                     sh "docker-compose up --build --no-start"
                 }
-
+                }
+            }
+        stage('Upload image'){
+            steps {
                 echo "Uploading image..."
                 withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB_ACCOUNT', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                     sh "echo ${PASSWORD} | docker login --username ${USERNAME} --password-stdin"
@@ -27,17 +30,12 @@ pipeline {
                 }
             }
         }
-
-        stage('JIRA') {
+        stage('Jira') {
             steps{
                 script {
-                    jiraComment body: "The build for issue ${JIRA_ISSUE_KEY} has been completed successfully.", issueKey: ${JIRA_ISSUE_KEY}
+                    jiraComment body: "The build for issue SW-9 has been completed successfully.", issueKey: "SW-9"
                     }
                 }
-
             }
         }
-    
-
-
 }
