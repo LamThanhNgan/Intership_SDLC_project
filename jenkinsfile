@@ -33,7 +33,7 @@ pipeline {
         stage('Jira') {
             steps{
                 script {
-                    jiraComment body: "The build for issue SW-9 has been completed successfully.", issueKey: "SW-9"
+                    jiraComment body: "The build for issue SW-9 has been completed successfully. http://localhost:8080/job/task-master/", issueKey: "SW-9"
                     }
                 }
             }
